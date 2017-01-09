@@ -20,9 +20,9 @@ as.data.frame(table(new.data.f)) -> data.f
 data.f <- data.frame(age = as.numeric(levels(data.f$new.data.f)), risk.female = data.f$Freq)
 as.data.frame(table(new.data.m)) -> data.m
 data.m <- data.frame(age = as.numeric(levels(data.m$new.data.m)), risk.male = data.m$Freq)
-plot(data.f$risk.female~data.f$age, xlab="Age in months", ylab = "The number of people at risk", lty = 1)
-lines(y = data.m$risk.male, x = data.m$age, lty = 3)
-
+plot(data.f$risk.female~data.f$age, xlab="Age in months", ylab = "The number of people at risk", col =1)
+lines(y = data.m$risk.male, x = data.m$age, lty = 3, col=2)
+legend("topright", c("Female", "Male"), text.col =  1:2)
 library(dplyr)
 #event times ti and the number of deaths at each time for female and male 
 death.female <- channing %>% filter(gender == 2) %>%  #only select females
